@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400..900&display=swap');
+.header {
+    display: flex;
+    width: 100%;
+    padding: 2rem 0;
+    justify-content: center;
+}
+
+.list-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.add-card{
+    width: 20rem;
+    height: 20rem;
+    background-color: #313131;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    border-radius: .5rem;
+}
+
+.add-card span{
+    transform: translateY(-5px);
+}
+
+li{
+    list-style: none;
+}
+
+.card{
+    width: 20rem;
+    height: 20rem;
+    background-color: #313131;
+    border-radius: .5rem;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+}
+.card .deleteBtn{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: .3rem .6rem;
+    color: #ddd;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    transition: .2s ease-in-out
+}
+.card .deleteBtn:hover{
+    background-color: #fff3;
+}
+
