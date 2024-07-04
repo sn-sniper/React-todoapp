@@ -24,7 +24,7 @@ const Home = () => {
         <div>
             <h1 className='header'>To Do List</h1>
             <ul className='list-container'>
-                {todos.slice().reverse().map((todo, index) => (  // Slice and reverse for immutability
+                {todos.slice().map((todo, index) => (  // Slice and reverse for immutability
                     <li className='card' key={index}>
                         <span className='stick'>{todo.Title}</span>
                         {todo.Content}
@@ -32,7 +32,7 @@ const Home = () => {
                         <div className='card-edge'></div>
                         <div className='card-edge-tr'></div>
                     </li>
-                ))}
+                )).reverse()}
                 <div className='add-card' onClick={goToAdd}><span>+</span></div>
                 
             </ul>
