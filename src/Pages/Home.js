@@ -4,39 +4,39 @@ import "../Styles/Home.css";
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const { todos ,setTodos } = useContext(TodoContext);
-    const Navigate = useNavigate();
+    const { todos, setTodos } = useContext(TodoContext);
+    const navigate = useNavigate();  // Changed to lowercase
 
-    const GoToAdd = () => {
-        Navigate('/add-todo')
-    }
+    const goToAdd = () => {  // Changed function name to camelCase
+        navigate('/add-todo');
+    };
 
     const deleteTodo = (index) => {
         const newTodos = todos.filter((_, i) => i !== index);
         setTodos(newTodos);
     };
 
-
     useEffect(() => {
         console.log('Todos:', todos);
     }, [todos]);
 
     return (
-        <React.Fragment>
-            <div>
-                <h1 className='header'>To Do List</h1>
-                <ul className='list-container'>
-                    {todos.map((todo, index) => (
-                        <li className='card' key={index}>
-                            <span className='stick'></span>
-                            {todo}
-                            <span className='deleteBtn' onClick={ () => deleteTodo(index)}><ion-icon name="trash-outline"></ion-icon></span>
-                        </li>
-                    )).reverse()}
-                    <div className='add-card' onClick={GoToAdd}><span>+</span></div>
-                </ul>
-            </div>
-        </React.Fragment>
+        <div>
+            <h1 className='header'>To Do List</h1>
+            <ul className='list-container'>
+                {todos.slice().reverse().map((todo, index) => (  // Slice and reverse for immutability
+                    <li className='card' key={index}>
+                        <span className='stick'>{todo.Title}</span>
+                        {todo.Content}
+                        <span className='deleteBtn' onClick={() => deleteTodo(index)}><ion-icon name="trash-outline"></ion-icon></span>
+                        <div className='card-edge'></div>
+                        <div className='card-edge-tr'></div>
+                    </li>
+                ))}
+                <div className='add-card' onClick={goToAdd}><span>+</span></div>
+                
+            </ul>
+        </div>
     );
 };
 

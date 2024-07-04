@@ -5,13 +5,15 @@ import "../Styles/AddTask.css";
 
 const AddTodo = () => {
     const { todos, setTodos } = useContext(TodoContext);
-    const inputRef = useRef();
+    const TitleRef = useRef();
+    const ContentRef = useRef();
     const navigate = useNavigate();
 
     const addTodo = () => {
-        const newTodo = inputRef.current.value;
-        if (newTodo) {
-            setTodos([...todos, newTodo]);
+        const newTitle = TitleRef.current.value;
+        const newContent = ContentRef.current.value;
+        if (newTitle && newContent) {
+            setTodos([...todos, { Title : newTitle , Content : newContent}]);
             navigate('/');
         }
     };
@@ -28,7 +30,8 @@ const AddTodo = () => {
             <span className='back-arrow' onClick={GoBack}><ion-icon name="chevron-back-outline"></ion-icon></span>
             <div className='AddForm'>
                 <h1>add-task</h1>
-                <input type='text' onKeyDown={handleKeyPress} ref={inputRef} placeholder="New Todo"/>
+                <input type='text' ref={TitleRef} placeholder="New Todo Title"/>
+                <textarea type='text' onKeyDown={handleKeyPress} ref={ContentRef} placeholder='New Todo Text'/>
                 <button onClick={addTodo} className='addBtn'>Add Task</button>
             </div>
         </div>

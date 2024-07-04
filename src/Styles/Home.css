@@ -37,7 +37,7 @@ li{
 .card{
     width: 20rem;
     height: 20rem;
-    background-color: #ffffcc;
+    background-color: #feff9c;
     /* border-radius: .5rem; */
     display: flex;
     font-family: "Playwrite RO" ,cursive;
@@ -53,8 +53,11 @@ li{
 .card .stick {
     position: absolute;
     width: 100%;
+    padding: 1rem;
+    font-family: "Playwrite RO", cursive;
+    text-transform: capitalize;
     height: 5rem;
-    background-color: #ffff347d;
+    background-color: #ffff3452;
     top: 0;
     left: 0;
 }
@@ -62,7 +65,7 @@ li{
 .card .deleteBtn{
     position: absolute;
     bottom: 1rem;
-    right: 1rem;
+    left: 1rem;
     padding: .3rem .6rem;
     color: #000;
     font-size: 1.2rem;
@@ -73,3 +76,33 @@ li{
     background-color: #5553;
 }
 
+.card-edge{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff740;
+    width: 3rem;
+    height: 3rem;
+    
+}
+.card-edge-tr {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #121212;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    width: 3rem;
+    height: 3rem;
+    
+}
+
+@media all and (max-width : 760px){
+    .list-container{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        overflow-y: auto;
+    }
+}
