@@ -4,16 +4,17 @@ import "../Styles/Home.css";
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const { todos } = useContext(TodoContext);
+    const { todos ,setTodos } = useContext(TodoContext);
     const Navigate = useNavigate();
 
     const GoToAdd = () => {
         Navigate('/add-todo')
     }
 
-    // const DeleteTodo = (index) => {
-    //     const updatedTasks = todos.filter((element, i) => i !== index)
-    // }
+    const deleteTodo = (index) => {
+        const newTodos = todos.filter((_, i) => i !== index);
+        setTodos(newTodos);
+    };
 
 
     useEffect(() => {
@@ -26,8 +27,10 @@ const Home = () => {
                 <h1 className='header'>To Do List</h1>
                 <ul className='list-container'>
                     {todos.map((todo, index) => (
-                        <li className='card' key={index}>{todo}
-                            {/* <span className='deleteBtn' onClick={DeleteTodo()}><ion-icon name="trash-outline"></ion-icon></span> */}
+                        <li className='card' key={index}>
+                            <span className='stick'></span>
+                            {todo}
+                            <span className='deleteBtn' onClick={ () => deleteTodo(index)}><ion-icon name="trash-outline"></ion-icon></span>
                         </li>
                     )).reverse()}
                     <div className='add-card' onClick={GoToAdd}><span>+</span></div>
